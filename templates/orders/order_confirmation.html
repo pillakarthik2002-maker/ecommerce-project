@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Order Confirmation
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="text-center py-5">
+
+        <h1 class="text-success">
+            Order Placed Successfully!
+        </h1>
+
+        <p class="lead mt-3">
+            Thank you for your order.
+        </p>
+
+        <div class="card shadow-sm mt-4 mx-auto"
+             style="max-width: 500px;">
+
+            <div class="card-body">
+
+                <h4>
+                    Order #{{ order.id }}
+                </h4>
+
+                <hr>
+
+                <div class="d-flex justify-content-between">
+
+                    <span>
+                        Total Amount
+                    </span>
+
+                    <strong>
+                        ₹{{ order.total_amount }}
+                    </strong>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-2">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <span class="badge bg-warning text-dark">
+                        {{ order.status }}
+                    </span>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-2">
+
+                    <span>
+                        Order Date
+                    </span>
+
+                    <span>
+                        {{ order.created_at|date:"d M Y, h:i A" }}
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="mt-4">
+
+            <a
+                href="{% url 'product_list' %}"
+                class="btn btn-primary"
+            >
+                Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

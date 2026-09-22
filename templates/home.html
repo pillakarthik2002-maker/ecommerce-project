@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="hero-section text-center">
+
+    <h1>
+        Welcome to ShopNest
+    </h1>
+
+    <p class="lead">
+        Everything you need, all in one place.
+    </p>
+
+    <a
+        href="{% url 'product_list' %}"
+        class="btn btn-primary btn-lg"
+    >
+        Shop Now
+    </a>
+
+</div>
+
+
+<div class="text-center mb-4">
+
+    <h2>
+        Why Shop With Us?
+    </h2>
+
+</div>
+
+
+<div class="row text-center">
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card h-100 shadow-sm">
+
+            <div class="card-body">
+
+                <h4>
+                    Quality Products
+                </h4>
+
+                <p>
+                    We provide quality products
+                    for our customers.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card h-100 shadow-sm">
+
+            <div class="card-body">
+
+                <h4>
+                    Best Prices
+                </h4>
+
+                <p>
+                    Shop your favorite products
+                    at affordable prices.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card h-100 shadow-sm">
+
+            <div class="card-body">
+
+                <h4>
+                    Easy Shopping
+                </h4>
+
+                <p>
+                    Browse products and shop
+                    easily from anywhere.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

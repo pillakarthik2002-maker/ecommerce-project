@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ product.name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row g-5">
+
+    <!-- Product Image -->
+
+    <div class="col-md-6">
+
+        {% if product.image %}
+
+        <img src="{{ product.image.url }}" class="img-fluid rounded shadow-sm product-detail-image"
+            alt="{{ product.name }}">
+
+        {% else %}
+
+        <div class="product-detail-placeholder">
+
+            <span>
+                No Image Available
+            </span>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Product Details -->
+
+    <div class="col-md-6">
+
+        <p class="text-muted">
+
+            {{ product.category.name }}
+
+        </p>
+
+
+        <h1 class="mb-3">
+
+            {{ product.name }}
+
+        </h1>
+
+
+        <h2 class="text-primary mb-3">
+
+            ₹{{ product.price }}
+
+        </h2>
+
+
+        <p class="lead">
+
+            {{ product.description }}
+
+        </p>
+
+
+        <hr>
+
+
+        {% if product.stock > 0 %}
+
+        <p class="text-success">
+
+            <strong>
+                In Stock
+            </strong>
+
+        </p>
+
+        <p>
+
+            Available quantity:
+            {{ product.stock }}
+
+        </p>
+        <form method="POST" action="{% url 'add_to_cart' product.id %}">
+
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-success btn-lg">
+                Add to Cart
+            </button>
+
+        </form>
+
+        {% else %}
+
+        <p class="text-danger">
+
+            <strong>
+                Out of Stock
+            </strong>
+
+        </p>
+
+        <button class="btn btn-secondary btn-lg" disabled>
+            Out of Stock
+        </button>
+
+        {% endif %}
+
+
+        <div class="mt-4">
+
+            <a href="{% url 'product_list' %}" class="btn btn-outline-primary">
+                ← Back to Products
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
